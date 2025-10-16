@@ -26,4 +26,8 @@ public class Client {
 
   @Column(nullable = false)
   private Instant createdAt = Instant.now();
+
+  @Builder.Default
+  @Column(nullable = false)
+  private Instant createdAt = Instant.now();
 }
