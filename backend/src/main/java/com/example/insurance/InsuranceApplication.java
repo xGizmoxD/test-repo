@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication(scanBasePackages = "com.example.insurance")
-@Import(SecurityConfig.class) // ← to wymusza wczytanie SecurityConfig
+@Import(SecurityConfig.class)
 public class InsuranceApplication {
   public static void main(String[] args) {
     SpringApplication.run(InsuranceApplication.class, args);
