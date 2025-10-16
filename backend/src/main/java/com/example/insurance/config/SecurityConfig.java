@@ -25,7 +25,8 @@ public class SecurityConfig {
           "/favicon.ico"
         ).permitAll()
         
-        .requestMatchers("/api/hello").permitAll()
+        //.requestMatchers("/api/hello").permitAll()
+        .requestMatchers("/api/policies/*/payments/**").permitAll()
         
         .anyRequest().authenticated()
       )
