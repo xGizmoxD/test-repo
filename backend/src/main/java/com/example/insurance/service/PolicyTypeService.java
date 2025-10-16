@@ -7,7 +7,7 @@ import com.example.insurance.dto.PolicyTypeDtos.CreatePolicyTypeRequest;
 import com.example.insurance.dto.PolicyTypeDtos.PolicyTypeResponse;
 import com.example.insurance.repository.PolicyTypeRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
