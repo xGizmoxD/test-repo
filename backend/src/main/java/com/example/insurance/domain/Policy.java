@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor @AllArgsConstructor @Builder
 @Entity @Table(name = "policy")
 public class Policy {
+
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
@@ -28,9 +29,11 @@ public class Policy {
   @Column(nullable = false, precision = 12, scale = 2)
   private BigDecimal premium;
 
+  @Builder.Default
   @Column(nullable = false, length = 20)
   private String status = "ACTIVE";
 
+  @Builder.Default
   @Column(nullable = false)
   private Instant createdAt = Instant.now();
 }

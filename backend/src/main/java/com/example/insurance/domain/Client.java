@@ -24,6 +24,7 @@ public class Client {
   @Column(nullable = false)
   private LocalDate birthDate;
 
+  @Builder.Default
   @Column(nullable = false)
   private Instant createdAt = Instant.now();
 }
