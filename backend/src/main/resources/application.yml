@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/insurance_db
+    username: insurance_user
+    password: insurance_pass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+  application:
+    name: insurance
+server:
+  port: 8080
+springdoc:
+  api-docs.path: /v3/api-docs
+  swagger-ui.path: /swagger-ui.html
+  packagesToScan: com.example.insurance.web
+  pathsToMatch: /api/**
