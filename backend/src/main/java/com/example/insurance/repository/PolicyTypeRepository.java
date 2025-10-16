@@ -5,4 +5,5 @@ import java.util.Optional;
 
 public interface PolicyTypeRepository extends JpaRepository<PolicyType, Long> {
   Optional<PolicyType> findByCode(String code);
+  boolean existsByCode(String code);
 }
