@@ -23,7 +23,12 @@
     </properties>
 
     <dependencies>
-
+        <!-- In-memory baza danych tylko do testów -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- ✅ OpenAPI / Swagger -->
         <dependency>
             <groupId>org.springdoc</groupId>

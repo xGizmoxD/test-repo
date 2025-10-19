@@ -5,10 +5,14 @@ import lombok.*;
 import java.time.Instant;
 import java.time.LocalDate;
 
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor @Builder
-@Entity @Table(name = "client")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder(access = AccessLevel.PRIVATE)
+@Entity                                 
+@Table(name = "client")
 public class Client {
+
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
@@ -24,6 +28,21 @@ public class Client {
   @Column(nullable = false)
   private LocalDate birthDate;
 
+  @Builder.Default
   @Column(nullable = false)
   private Instant createdAt = Instant.now();
+
+  /** Fabryka – bez setterów na zewnątrz */
+  public static Client createFrom(String firstName,
+                                  String lastName,
+                                  String email,
+                                  LocalDate birthDate) {
+    return Client.builder()
+        .firstName(firstName)
+        .lastName(lastName)
+        .email(email)
+        .birthDate(birthDate)
+        .createdAt(Instant.now())
+        .build();
+  }
 }
