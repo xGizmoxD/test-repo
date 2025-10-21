@@ -2,13 +2,18 @@ package com.example.insurance.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.Instant;
 import java.time.LocalDate;
 
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor @Builder
-@Entity @Table(name = "client")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder(access = AccessLevel.PRIVATE)
+@Entity
+@Table(name = "client")
 public class Client {
+
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
@@ -25,5 +30,16 @@ public class Client {
   private LocalDate birthDate;
 
   @Column(nullable = false)
-  private Instant createdAt = Instant.now();
+  private Instant createdAt;
+
+  // ⇩⇩⇩ FABRYKA wykorzystywana w ClientCommandService ⇩⇩⇩
+  public static Client createFrom(String firstName, String lastName, String email, LocalDate birthDate) {
+    Client c = new Client();
+    c.firstName = firstName;
+    c.lastName  = lastName;
+    c.email     = email;
+    c.birthDate = birthDate;
+    c.createdAt = Instant.now();
+    return c;
+  }
 }

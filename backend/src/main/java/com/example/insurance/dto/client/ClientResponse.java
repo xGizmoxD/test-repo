@@ -1,4 +1,4 @@
-package com.example.insurance.dto;
+package com.example.insurance.dto.client;
 
 import java.time.LocalDate;
 import java.time.Instant;

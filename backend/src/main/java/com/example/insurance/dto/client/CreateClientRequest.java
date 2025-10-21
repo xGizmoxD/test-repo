@@ -1,4 +1,5 @@
-package com.example.insurance.dto;
+package com.example.insurance.dto.client;
+import com.example.insurance.dto.client.CreateClientRequest;
 
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
